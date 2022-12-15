@@ -1,0 +1,55 @@
+.Pokemon .PokemonPicture {
+	height: 80px;
+	width: 80px;
+}
+
+.Pokemon {
+	height: 80px;
+	display: flex;
+	justify-content: center;
+	margin: 4px 0;
+	color: #3f3f3f !important;
+	border-radius: 20px;
+}
+
+.Pokemon > .row > .col:first-child {
+	flex: 9;
+	padding: 0 30px;
+}
+.Pokemon > .row > .col:last-child {
+	border-radius: 80px 36px 36px 80px;
+	flex: 3;
+}
+
+.Pokemon h5 {
+	text-align: left;
+	margin: 0;
+}
+
+.Pokemon .PokemonId {
+	flex: 4;
+}
+
+.Pokemon .PokemonName {
+	flex: 19;
+}
+
+.Pokemon > .row {
+	align-items: center;
+	display: flex;
+}
+
+.Pokemon .TypesSection {
+	margin-top: 8px;
+	font-size: 0.95rem;
+	font-family: 'Nunito-Medium';
+}
+
+.Pokemon .TypesSection .TypeName {
+	padding: 0 calc(var(--bs-gutter-x) * 0.2);
+}
+
+.Pokemon .TypesSection .TypeName .container {
+	border: solid 1px #3f3f3f;
+	border-radius: 10px;
+}

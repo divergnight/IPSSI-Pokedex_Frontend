@@ -1,0 +1,16 @@
+#PokemonList {
+	padding: 12px 0;
+}
+
+#PokemonList > .row {
+	width: 480px;
+	margin: 0 8px;
+}
+
+/* #PokemonList .ActionsButton {
+	align-items: center;
+}
+
+#PokemonList .ActionsButton button {
+	width: 120px;
+} */

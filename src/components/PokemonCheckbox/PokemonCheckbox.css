@@ -1,0 +1,9 @@
+.PokemonCheckbox {
+	flex: 1;
+	display: flex;
+	align-items: center;
+}
+
+.PokemonCheckbox div {
+	display: flex;
+}

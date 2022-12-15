@@ -1,0 +1,18 @@
+#Navbar form a {
+	margin-left: 10px;
+}
+
+#Navbar h4 {
+	color: #fff;
+	margin: 0;
+}
+
+#Navbar .row > .col:first-child {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#Navbar .row > .col:last-child {
+	flex-shrink: 0;
+}
