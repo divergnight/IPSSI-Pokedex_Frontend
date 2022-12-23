@@ -17,7 +17,7 @@ export class PokemonProvider {
 			.getPokemonSpeciesList()
 			.then(data =>
 				data.results.map(p => {
-					p.id = p.url.match(/\/([^/]+)\/?$/)[1]
+					p.id = Number(p.url.match(/\/([^/]+)\/?$/)[1])
 					return p
 				})
 			)

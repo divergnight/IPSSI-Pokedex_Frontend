@@ -12,12 +12,14 @@ export default function PokemonCheckbox(props) {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [props.isSelected])
 
-	const addOrRemovePokemon = async () => {
+	const addOrRemovePokemon = async e => {
+		e.stopPropagation()
+
 		const P = new PokedexProvider()
 		;(isSelected ? P.removePokemon(pokemon.id) : P.addPokemon(pokemon.id))
-			.then(e => {
+			.then(p => {
 				if (setPokedex) {
-					if (isSelected) setPokedex(old => [...old].filter(e => e !== pokemon.id))
+					if (isSelected) setPokedex(old => [...old].filter(p => p !== pokemon.id))
 					else setPokedex(old => [...old, pokemon.id])
 				}
 				setIsSelected(!isSelected)

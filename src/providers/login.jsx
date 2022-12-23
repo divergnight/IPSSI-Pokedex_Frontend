@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const ENDPOINT = 'https://dev.vadn/'
+const ENDPOINT = 'http://localhost:3000/'
 
 export class LoginProvider {
 	token

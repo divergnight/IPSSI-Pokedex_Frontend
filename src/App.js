@@ -8,8 +8,7 @@ import { useState } from 'react'
 import MyPokedex from './pages/MyPokedex/MyPokedex'
 
 function App() {
-	// eslint-disable-next-line no-unused-vars
-	const [isLogin, setIsLogin] = useState()
+	const [, setIsLogin] = useState()
 
 	return (
 		<div className="App">

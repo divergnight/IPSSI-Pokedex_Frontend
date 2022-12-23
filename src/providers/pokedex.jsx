@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { LoginProvider } from './login'
 
-const ENDPOINT = 'https://dev.vadn/pokedex/'
+const ENDPOINT = 'http://localhost:3000/pokedex'
 
 export class PokedexProvider {
 	async getPokedex() {

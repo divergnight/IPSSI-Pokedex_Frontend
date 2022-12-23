@@ -1,5 +1,5 @@
 #MyPokedex {
-	overflow-y: overlay;
+	overflow-y: auto;
 	width: 500px;
 	height: calc(100vh - 56px);
 	background-color: #212121;
