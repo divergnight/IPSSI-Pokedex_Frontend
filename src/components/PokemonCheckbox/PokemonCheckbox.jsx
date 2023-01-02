@@ -1,28 +1,17 @@
 import { useEffect, useState } from 'react'
 import { Col } from 'react-bootstrap'
-import { PokedexProvider } from '../../providers/pokedex'
 import './PokemonCheckbox.css'
 
 export default function PokemonCheckbox(props) {
 	const [isSelected, setIsSelected] = useState(props.isSelected)
-	const { pokemon, setPokedex } = props
 
 	useEffect(() => {
 		setIsSelected(props.isSelected)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [props.isSelected])
 
-	const addOrRemovePokemon = async () => {
-		const P = new PokedexProvider()
-		;(isSelected ? P.removePokemon(pokemon.id) : P.addPokemon(pokemon.id))
-			.then(e => {
-				if (setPokedex) {
-					if (isSelected) setPokedex(old => [...old].filter(e => e !== pokemon.id))
-					else setPokedex(old => [...old, pokemon.id])
-				}
-				setIsSelected(!isSelected)
-			})
-			.catch(err => console.log(err))
+	const addOrRemovePokemon = async e => {
+		e.stopPropagation()
 	}
 
 	return (

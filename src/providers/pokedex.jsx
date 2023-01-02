@@ -1,54 +1,36 @@
 import axios from 'axios'
 import { LoginProvider } from './login'
 
-const ENDPOINT = 'https://dev.vadn/pokedex/'
+const ENDPOINT = 'https://dev.vadn/pokedex'
 
 export class PokedexProvider {
+	async getPieceCount() {
+		try {
+			const loginProvider = new LoginProvider()
+			const res = await axios.get(ENDPOINT + '/piece', { headers: { Authorization: 'Bearer ' + loginProvider.token } })
+			return res.data.piece
+		} catch (error) {
+			console.log(error.response.data.message)
+			return error.response.data.message
+		}
+	}
+
 	async getPokedex() {
 		try {
 			const loginProvider = new LoginProvider()
 			const res = await axios.get(ENDPOINT, { headers: { Authorization: 'Bearer ' + loginProvider.token } })
 			return res.data.pokedex
 		} catch (error) {
-			return error.response.data.message
-		}
-	}
-
-	async addPokemon(id) {
-		try {
-			const loginProvider = new LoginProvider()
-			const res = await axios.patch(
-				ENDPOINT + '/add',
-				{ pokedex: [id] },
-				{ headers: { Authorization: 'Bearer ' + loginProvider.token } }
-			)
-			return res.data.pokedex
-		} catch (error) {
 			console.log(error.response.data.message)
 			return error.response.data.message
 		}
 	}
 
-	async removePokemon(id) {
+	async unlockPokemon() {
 		try {
 			const loginProvider = new LoginProvider()
-			const res = await axios.patch(
-				ENDPOINT + '/remove',
-				{ pokedex: [id] },
-				{ headers: { Authorization: 'Bearer ' + loginProvider.token } }
-			)
-			return res.data.pokedex
-		} catch (error) {
-			console.log(error.response.data.message)
-			return error.response.data.message
-		}
-	}
-
-	async clearPokedex() {
-		try {
-			const loginProvider = new LoginProvider()
-			await axios.delete(ENDPOINT, { headers: { Authorization: 'Bearer ' + loginProvider.token } })
-			return null
+			const res = await axios.get(ENDPOINT + '/unlock', { headers: { Authorization: 'Bearer ' + loginProvider.token } })
+			return Number(res.data.id)
 		} catch (error) {
 			console.log(error.response.data.message)
 			return error.response.data.message

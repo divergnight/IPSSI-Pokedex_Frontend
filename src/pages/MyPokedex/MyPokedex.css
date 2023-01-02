@@ -1,5 +1,5 @@
 #MyPokedex {
-	overflow-y: overlay;
+	overflow-y: auto;
 	width: 500px;
 	height: calc(100vh - 56px);
 	background-color: #212121;
@@ -10,17 +10,17 @@
 	align-items: center;
 }
 
-#MyPokedex > .row:first-child {
+#MyPokedex > .row:first-child + .row {
 	margin: 0;
 	width: 480px;
 	color: #fff;
 	padding: 10px 0px;
 }
 
-#MyPokedex > .row:first-child > .col:first-child {
+#MyPokedex > .row:first-child + .row > .col:first-child {
 	flex: 11;
 }
-#MyPokedex > .row:first-child > .col:last-child {
+#MyPokedex > .row:first-child + .row > .col:last-child {
 	flex: 1;
 	display: flex;
 	align-items: center;

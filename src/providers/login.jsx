@@ -5,6 +5,7 @@ const ENDPOINT = 'https://dev.vadn/'
 export class LoginProvider {
 	token
 	username
+	piece
 
 	constructor() {
 		this.load()
@@ -13,11 +14,13 @@ export class LoginProvider {
 	save() {
 		localStorage.setItem('username', this.username)
 		localStorage.setItem('token', this.token)
+		localStorage.setItem('piece', this.piece)
 	}
 
 	load() {
 		this.username = localStorage.getItem('username')
 		this.token = localStorage.getItem('token')
+		this.piece = localStorage.getItem('piece')
 	}
 
 	getToken() {
@@ -25,9 +28,10 @@ export class LoginProvider {
 		return this.token
 	}
 
-	set({ username, token }) {
+	set({ username, token, piece }) {
 		this.username = username
 		this.token = token
+		this.piece = piece
 		this.save()
 	}
 

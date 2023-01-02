@@ -10,6 +10,7 @@ import './MyPokedex.css'
 export default function MyPokedex() {
 	const [pokedex, setPokedex] = useState([])
 	const [isLoad, setIsLoad] = useState(false)
+	const [instantView, setInstantView] = useState(null)
 	const navigate = useNavigate()
 
 	useEffect(() => {
@@ -31,8 +32,20 @@ export default function MyPokedex() {
 		<Container id="MyPokedex">
 			{isLoad && (
 				<>
-					<MyPokedexActionBar pokedex={pokedex} setPokedex={setPokedex} setIsLoad={setIsLoad} />
-					<PokemonList scrollElemenyId="MyPokedex" pokedex={pokedex} readOnly={false} setPokedex={setPokedex} />
+					<MyPokedexActionBar
+						pokedex={pokedex}
+						setPokedex={setPokedex}
+						setIsLoad={setIsLoad}
+						setInstantView={setInstantView}
+					/>
+					<PokemonList
+						scrollElemenyId="MyPokedex"
+						pokedex={pokedex}
+						readOnly={false}
+						setPokedex={setPokedex}
+						instantView={instantView}
+						setInstantView={setInstantView}
+					/>
 				</>
 			)}
 		</Container>

@@ -1,14 +1,15 @@
 import { FastAverageColor } from 'fast-average-color'
 import { useEffect, useState } from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap'
+import PokemonMoreInfo from '../../pages/PokemonMoreInfo/PokemonMoreInfo'
 import { LoginProvider } from '../../providers/login'
 import { PokemonProvider } from '../../providers/pokemon'
 import PokemonCheckbox from '../PokemonCheckbox/PokemonCheckbox'
 import './PokemonCard.css'
 
-const capitalize = str => str.substring(0, 1).toUpperCase() + str.substring(1)
-const toUUID = n => '#' + '0'.repeat(3 - ('' + n).length) + n
-const highlightColor = (color, n) => {
+export const capitalize = str => str.substring(0, 1).toUpperCase() + str.substring(1)
+export const toUUID = n => '#' + '0'.repeat(3 - ('' + n).length) + n
+export const highlightColor = (color, n) => {
 	const colors = color
 		.substring(color.indexOf('(') + 1, color.lastIndexOf(')'))
 		.split(',')
@@ -18,12 +19,18 @@ const highlightColor = (color, n) => {
 }
 
 export default function PokemonCard(props) {
+	const [color, setColor] = useState()
+	const [visibility, setVisibility] = useState(props.defaultVisibility ?? false)
 	const [pokemon, setPokemon] = useState(props.pokemon)
-	const { isSelected, setPokedex, cardElementKey } = props
+	const { isSelected, setPokedex, cardElementKey, setInstantView } = props
 
 	const loginProvider = new LoginProvider()
 
 	useEffect(() => {
+		if (props.defaultVisibility) {
+			setInstantView(null)
+		}
+
 		const P = new PokemonProvider()
 		P.getPokemonsData(pokemon.id)
 			.then(data => {
@@ -43,6 +50,7 @@ export default function PokemonCard(props) {
 		fac
 			.getColorAsync(container.querySelector('img'))
 			.then(color => {
+				setColor(color.rgb)
 				container.style.backgroundColor = highlightColor(color.rgb, 32)
 				subContainer.style.backgroundColor = highlightColor(color.rgb, 96)
 			})
@@ -52,10 +60,20 @@ export default function PokemonCard(props) {
 	}, [cardElementKey, pokemon.id])
 
 	return (
-		<Card className="Pokemon" as={Container} id={cardElementKey}>
+		<Card className="Pokemon" as={Container} id={cardElementKey} onClick={e => color && setVisibility(!visibility)}>
 			<Row>
 				<Col>
 					<Row>
+						{color && (
+							<PokemonMoreInfo
+								pokemon={pokemon}
+								onClose={() => setVisibility(false)}
+								show={visibility}
+								color={color}
+								isSelected={isSelected}
+								setPokedex={setPokedex}
+							></PokemonMoreInfo>
+						)}
 						<Col className="PokemonId">
 							<h5>{toUUID(pokemon.id)}</h5>
 						</Col>

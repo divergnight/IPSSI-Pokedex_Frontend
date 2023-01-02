@@ -4,8 +4,8 @@
 }
 
 @font-face {
-	font-family: 'Nunito-Light';
-	src: url('/static/fonts/Nunito-Light.ttf');
+	font-family: 'Nunito-Bold';
+	src: url('/static/fonts/Nunito-Bold.ttf');
 }
 
 @font-face {
@@ -23,6 +23,10 @@ body {
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.btn {
+	--bs-btn-disabled-opacity: 0.45;
 }
 
 .btn-primary {

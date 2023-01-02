@@ -6,7 +6,7 @@ import './PokemonList.css'
 import { PokemonProvider } from '../../providers/pokemon'
 
 export default function PokemonList(props) {
-	const { scrollElemenyId, pokedex, readOnly, setPokedex } = props
+	const { scrollElemenyId, pokedex, readOnly, setPokedex, instantView, setInstantView } = props
 
 	const [pokemons, setPokemons] = useState([])
 	const [, setHasMore] = useState(true)
@@ -58,6 +58,8 @@ export default function PokemonList(props) {
 								isSelected={pokedex.includes(pokemon.id)}
 								cardElementKey={`PokemonCard-${pokemon.id}`}
 								setPokedex={setPokedex}
+								defaultVisibility={pokemon.id === instantView}
+								setInstantView={setInstantView}
 							/>
 						</Row>
 					)

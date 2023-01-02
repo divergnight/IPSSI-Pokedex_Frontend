@@ -1,0 +1,21 @@
+.PokemonActionBarUnlock {
+	margin: 0;
+	width: 480px;
+	color: #fff;
+	padding: 10px 0px;
+}
+
+.PokemonActionBarUnlock > .col {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.PokemonActionBarUnlock p {
+	margin: 0;
+	font-size: 17px;
+}
+
+.PokemonActionBarUnlock button[disabled] {
+	color: #fff;
+}

@@ -1,0 +1,67 @@
+.PokemonMoreInfo {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+
+	visibility: visible;
+	opacity: 1;
+
+	transition: opacity 200ms ease-in-out;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	z-index: 100;
+}
+
+.PokemonMoreInfo.closed {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.PokemonMoreInfo .popup {
+	overflow-y: auto;
+	width: 500px;
+
+	margin: 0 auto;
+	padding: 10px 20px;
+	background-color: #212121;
+	position: relative;
+	transition: all 200ms ease-in-out;
+	height: calc(100vh - 56px);
+}
+
+.PokemonMoreInfo .Pokemon .PokemonName h5 {
+	font-family: 'Nunito-Bold';
+	font-size: 1.4rem;
+}
+
+.PokemonMoreInfo .Pokemon .PokemonId h5 {
+	font-size: 1.1rem;
+}
+
+.PokemonMoreInfo .Pokemon .PokemonPicture {
+	width: 110px;
+	height: 110px;
+}
+
+.PokemonMoreInfo .Pokemon > .row > .col > .row {
+	display: flex;
+	align-items: center;
+}
+
+.PokemonMoreInfo .Pokemon .PokemonGenus h5 {
+	font-family: 'Nunito';
+	font-size: 1.1rem;
+}
+
+.PokemonMoreInfo .Pokemon .PokemonGenus {
+	flex: 19;
+}
+.PokemonMoreInfo .Pokemon .PokemonCheckbox {
+	flex: 1;
+	justify-content: right;
+}
+
+.PokemonMoreInfo .Pokemon > .row > .col > .row + .row:not(:last-child) {
+	padding-top: 4px;
+}
