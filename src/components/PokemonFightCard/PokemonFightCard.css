@@ -1,0 +1,85 @@
+.PokemonFightCard .PokemonPicture {
+	height: 80px;
+	width: 80px;
+}
+
+.PokemonFightCard {
+	display: flex;
+	justify-content: center;
+	margin: 4px 0;
+	color: #3f3f3f !important;
+	border-radius: 20px;
+}
+
+.PokemonFightCard > .row > .col:first-child {
+	flex: 9;
+	padding: 0 30px;
+}
+.PokemonFightCard > .row > .col:last-child {
+	border-radius: 80px 36px 36px 80px;
+	flex: 3;
+}
+
+.PokemonFightCard h5 {
+	text-align: left;
+	margin: 0;
+}
+
+.PokemonFightCard h5 + h5 {
+	font-size: 0.9rem;
+}
+
+.PokemonFightCard .PokemonId {
+	flex: 4;
+}
+
+.PokemonFightCard .PokemonName {
+	flex: 19;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.PokemonFightCard > .row {
+	align-items: center;
+	display: flex;
+}
+
+.PokemonFightCard .TypesSection {
+	margin-top: 8px;
+	font-size: 0.95rem;
+	font-family: 'Nunito-Medium';
+}
+
+.PokemonFightCard .TypesSection .TypeName {
+	padding: 0 calc(var(--bs-gutter-x) * 0.2);
+}
+
+.PokemonFightCard .TypesSection .TypeName .container {
+	border: solid 1px #3f3f3f;
+	border-radius: 10px;
+}
+
+.health-bar {
+	box-sizing: border-box;
+	width: 180px;
+	padding: 0;
+	background: #ddd;
+	border: 1px solid #aaa;
+	border-radius: 10px;
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+	overflow: hidden;
+}
+.bar {
+	background: #c54;
+	height: 8px;
+	position: relative;
+	transition: width 0.5s linear;
+}
+.hit {
+	background: rgba(255, 50, 50, 0.4);
+	height: 8px;
+	transition: width 0.5s linear;
+}

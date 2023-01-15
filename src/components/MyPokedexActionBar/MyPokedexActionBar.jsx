@@ -56,18 +56,20 @@ export default function MyPokedexActionBar(props) {
 		<>
 			<Row className="PokemonActionBarUnlock">
 				<Col>
-					{pieces === 0 ? (
-						<Button variant="primary" disabled onClick={unlockPokemon}>
+					{pieces !== 0 ? (
+						<Button variant="primary" onClick={unlockPokemon}>
 							Débloquer un pokémon
 						</Button>
 					) : (
-						<Button variant="primary" onClick={unlockPokemon}>
+						<Button variant="primary" disabled onClick={unlockPokemon}>
 							Débloquer un pokémon
 						</Button>
 					)}
 				</Col>
 
-				<Col>{pieces === 0 ? <p>Vous n'avez plus de pieces.</p> : <p>Vous avez {pieces} pieces.</p>}</Col>
+				<Col>
+					<p>{pieces === 0 ? "Vous n'avez plus de pieces." : `Vous avez ${pieces} pieces.`}</p>
+				</Col>
 			</Row>
 			<Row>
 				<Col>

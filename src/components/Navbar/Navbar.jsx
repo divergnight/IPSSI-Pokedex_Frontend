@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Navbar as RNavbar, Container, Button, Form, Col, Row, Nav } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { LoginProvider } from '../../providers/login'
 import './Navbar.css'
 
@@ -8,10 +8,13 @@ function Navbar(props) {
 	const { setIsLogin } = props
 
 	const loginProvider = new LoginProvider()
+	const navigate = useNavigate()
 
 	const logOut = () => {
 		loginProvider.logOut()
 		setIsLogin(false)
+
+		if (!loginProvider.token) navigate('/')
 	}
 
 	useEffect(() => {
@@ -32,9 +35,14 @@ function Navbar(props) {
 						Home
 					</Nav.Link>
 					{loginProvider.token && (
-						<Nav.Link as={Link} to="/mypokedex">
-							My Pokedex
-						</Nav.Link>
+						<>
+							<Nav.Link as={Link} to="/mypokedex">
+								My Pokedex
+							</Nav.Link>
+							<Nav.Link as={Link} to="/fight">
+								Fight
+							</Nav.Link>
+						</>
 					)}
 				</Nav>
 				<div>

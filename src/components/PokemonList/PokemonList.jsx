@@ -6,10 +6,11 @@ import './PokemonList.css'
 import { PokemonProvider } from '../../providers/pokemon'
 
 export default function PokemonList(props) {
-	const { scrollElemenyId, pokedex, readOnly, setPokedex, instantView, setInstantView } = props
+	const { scrollElemenyId, pokedex, readOnly, setPokedex, instantView, setInstantView, onClickOnElement, prefixId } =
+		props
 
 	const [pokemons, setPokemons] = useState([])
-	const [, setHasMore] = useState(true)
+	const [hasMore, setHasMore] = useState(true)
 	const [page, setPage] = useState(0)
 
 	useEffect(() => {
@@ -40,9 +41,11 @@ export default function PokemonList(props) {
 	}
 
 	useEffect(() => {
-		const element = document.getElementById(scrollElemenyId)
-		element.addEventListener('scroll', onScroll)
-		return () => element.removeEventListener('scroll', onScroll)
+		if (hasMore) {
+			const element = document.getElementById(scrollElemenyId)
+			element.addEventListener('scroll', onScroll)
+			return () => element.removeEventListener('scroll', onScroll)
+		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [pokemons])
 
@@ -52,14 +55,15 @@ export default function PokemonList(props) {
 				.filter(p => readOnly || pokedex.includes(p.id))
 				.map(pokemon => {
 					return (
-						<Row key={'PokemonElement-' + pokemon.id} id={'PokemonElement-' + pokemon.id}>
+						<Row key={(prefixId ?? '') + 'PokemonElement-' + pokemon.id} id={'PokemonElement-' + pokemon.id}>
 							<PokemonCard
 								pokemon={pokemon}
 								isSelected={pokedex.includes(pokemon.id)}
-								cardElementKey={`PokemonCard-${pokemon.id}`}
+								cardElementKey={`${prefixId ?? ''}PokemonCard-${pokemon.id}`}
 								setPokedex={setPokedex}
 								defaultVisibility={pokemon.id === instantView}
 								setInstantView={setInstantView}
+								onClick={onClickOnElement}
 							/>
 						</Row>
 					)

@@ -1,0 +1,79 @@
+.PokemonMoreInfoCard .StatSection > p {
+	font-family: 'Nunito-Bold';
+	font-size: 22px;
+	margin: 12px 0 4px 0;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.PokemonMoreInfoCard .StatSection .statTotal {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+}
+
+.PokemonMoreInfoCard .StatSection .statTotal p {
+	display: inline-block;
+	font-family: 'Nunito-Bold';
+	font-size: 1rem;
+	margin: 0;
+	padding: 0;
+	color: rgba(0, 0, 0, 0.6);
+	width: auto;
+}
+
+.PokemonMoreInfoCard .StatSection .statTotal p:first-child {
+	padding-right: 0.5rem;
+}
+
+.PokemonMoreInfoCard .StatSection .card {
+	border-radius: 10px;
+	padding: 12px 16px 8px 16px;
+}
+
+.PokemonMoreInfoCard .StatSection .stat:not(:last-child) {
+	padding-bottom: 0.5rem;
+}
+
+.PokemonMoreInfoCard .StatSection .stat .statName {
+	flex: 3;
+	padding-right: 0;
+}
+
+.PokemonMoreInfoCard .StatSection .stat .statName div {
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	height: 20px;
+	border-radius: 0.375rem 0 0 0.375rem;
+}
+
+.PokemonMoreInfoCard .StatSection .stat .statName div p {
+	margin: 0;
+	font-size: 0.75rem;
+}
+
+.PokemonMoreInfoCard .StatSection .stat .statNumber {
+	flex: 12;
+	display: grid;
+	align-items: center;
+	padding-left: 0;
+}
+
+.PokemonMoreInfoCard .StatSection .stat .progressBar {
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	height: 20px;
+	font-size: 0.75rem;
+	overflow: hidden;
+	border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.PokemonMoreInfoCard .StatSection .stat .progressBar p {
+	margin: 0;
+	padding-right: 6px;
+}

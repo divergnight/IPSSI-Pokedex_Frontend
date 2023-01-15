@@ -1,0 +1,66 @@
+#Fight #Battle .Process {
+	width: 500px;
+	height: calc(100vh - 56px);
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+}
+
+#Fight #Battle .Fight {
+	width: 500px;
+	height: calc(100vh - 56px);
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+}
+
+#Fight #Battle .Fight #OpponentPokemons {
+	align-self: flex-end;
+}
+
+#Fight #Battle .Fight #OpponentPokemons > .col {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+#Fight #Battle .Fight #OpponentPokemons > .col > .row {
+	margin-bottom: 5px;
+	margin-right: 0;
+}
+
+#Fight #Battle .Fight #OpponentPokemons > .col > .row > .col {
+	padding: 0 0.2rem;
+}
+
+#Fight #Battle .Fight #MiddleBattleText {
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#Fight #Battle .Fight #MiddleBattleText p {
+	margin: 0;
+}
+
+#Fight #Battle .Fight #YourPokemons {
+	align-self: flex-start;
+}
+
+#Fight #Battle .Fight #YourPokemons > .col {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+#Fight #Battle .Fight #YourPokemons > .col > .row {
+	margin-top: 5px;
+	margin-left: 0.5rem;
+}
+
+#Fight #Battle .Fight #YourPokemons > .col > .row > .col {
+	padding: 0 0.2rem;
+}

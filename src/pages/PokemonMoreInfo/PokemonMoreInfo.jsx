@@ -1,7 +1,7 @@
 import './PokemonMoreInfo.css'
 import { useEffect, useState } from 'react'
 import { highlightColor } from '../../components/PokemonCard/PokemonCard'
-import PokemonMoreInfoPokemonCard from '../../components/PokemonMoreInfo/PokemonCard/PokemonMoreInfoPokemonCard'
+import PokemonMoreInfoPokemonCard from '../../components/PokemonMoreInfo/PokemonMoreInfoPokemonCard'
 
 export default function PokemonMoreInfo(props) {
 	const { pokemon, color, isSelected, setPokedex } = props

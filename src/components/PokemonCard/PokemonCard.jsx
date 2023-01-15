@@ -7,8 +7,8 @@ import { PokemonProvider } from '../../providers/pokemon'
 import PokemonCheckbox from '../PokemonCheckbox/PokemonCheckbox'
 import './PokemonCard.css'
 
-export const capitalize = str => str.substring(0, 1).toUpperCase() + str.substring(1)
-export const toUUID = n => '#' + '0'.repeat(3 - ('' + n).length) + n
+export const capitalize = str => (str.length > 0 ? str.substring(0, 1).toUpperCase() + str.substring(1) : str)
+export const toUUID = n => '#' + '0'.repeat(4 - ('' + n).length) + n
 export const highlightColor = (color, n) => {
 	const colors = color
 		.substring(color.indexOf('(') + 1, color.lastIndexOf(')'))
@@ -22,7 +22,7 @@ export default function PokemonCard(props) {
 	const [color, setColor] = useState()
 	const [visibility, setVisibility] = useState(props.defaultVisibility ?? false)
 	const [pokemon, setPokemon] = useState(props.pokemon)
-	const { isSelected, setPokedex, cardElementKey, setInstantView } = props
+	const { isSelected, setPokedex, cardElementKey, setInstantView, onClick } = props
 
 	const loginProvider = new LoginProvider()
 
@@ -47,20 +47,32 @@ export default function PokemonCard(props) {
 		const fac = new FastAverageColor()
 		const container = document.getElementById(cardElementKey)
 		const subContainer = container.querySelector('.PokemonPictureCase')
+		const img = container.querySelector('img')
 		fac
-			.getColorAsync(container.querySelector('img'))
+			.getColorAsync(img)
 			.then(color => {
-				setColor(color.rgb)
+				if (img['src'] === window.location.href + 'logo512.png') {
+					setColor('rgb(255,255,255)')
+				} else {
+					setColor(color.rgb)
+				}
+
 				container.style.backgroundColor = highlightColor(color.rgb, 32)
 				subContainer.style.backgroundColor = highlightColor(color.rgb, 96)
 			})
-			.catch(e => {
-				console.log(e)
-			})
+			.catch(e => {})
 	}, [cardElementKey, pokemon.id])
 
 	return (
-		<Card className="Pokemon" as={Container} id={cardElementKey} onClick={e => color && setVisibility(!visibility)}>
+		<Card
+			className="Pokemon"
+			as={Container}
+			id={cardElementKey}
+			onClick={e => {
+				if (onClick) onClick(pokemon)
+				else if (color) setVisibility(!visibility)
+			}}
+		>
 			<Row>
 				<Col>
 					<Row>
@@ -97,6 +109,10 @@ export default function PokemonCard(props) {
 				<Col className="PokemonPictureCase">
 					<img
 						src={PokemonProvider.originalPictureUrl(pokemon.id)}
+						onError={e => {
+							e.target.src = '/logo512.png'
+							setColor('rgb(255,255,255)')
+						}}
 						alt=""
 						className="PokemonPicture"
 						crossOrigin="Anonymous"

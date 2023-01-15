@@ -16,7 +16,7 @@
 	padding: 0 30px;
 }
 .Pokemon > .row > .col:last-child {
-	border-radius: 80px 36px 36px 80px;
+	border-radius: 80px 30px 30px 80px;
 	flex: 3;
 }
 
