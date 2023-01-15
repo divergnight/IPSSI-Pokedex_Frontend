@@ -20,7 +20,8 @@
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
-		"start": "set PORT=8080 && react-scripts start",
+		"start": "set PORT=8080&& set HTTPS=true&& set SSL_CRT_FILE=sslcert/dev.vadn.crt&& set SSL_KEY_FILE=sslcert/dev.vadn.key&& react-scripts start",
+		"start-linux": "PORT=8080 HTTPS=true SSL_CRT_FILE=sslcert/dev.vadn.crt SSL_KEY_FILE=sslcert/dev.vadn.key react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
