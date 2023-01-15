@@ -123,7 +123,7 @@ export default function Battle(props) {
 												cardElementKey={`YourPokemonFightCard-${pokemons.your[0].id}`}
 											/>
 											<Row>
-												{data.detail.pokemons.opponent.map((x, i, a) => (
+												{data.detail.pokemons.your.map((x, i, a) => (
 													<Col key={'you-pokemon' + i}>
 														<img
 															alt="Pokedex"
