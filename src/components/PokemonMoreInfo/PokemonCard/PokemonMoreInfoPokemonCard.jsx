@@ -9,7 +9,6 @@ export default function PokemonMoreInfoPokemonCard(props) {
 
 	const loginProvider = new LoginProvider()
 
-	console.log(pokemon)
 	return (
 		<div className="PokemonCard">
 			<Row>

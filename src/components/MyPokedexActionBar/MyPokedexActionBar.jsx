@@ -40,7 +40,6 @@ export default function MyPokedexActionBar(props) {
 
 	const unlockPokemon = async e => {
 		const res = await new PokedexProvider().unlockPokemon()
-		console.log(res)
 		if (typeof res == 'number') {
 			setPokedex(old => [...old, res])
 			setInstantView(res)

@@ -76,7 +76,7 @@ export default function PokemonCard(props) {
 			<Row>
 				<Col>
 					<Row>
-						{color && (
+						{color && pokemon.data?.stats && (
 							<PokemonMoreInfo
 								pokemon={pokemon}
 								onClose={() => setVisibility(false)}
