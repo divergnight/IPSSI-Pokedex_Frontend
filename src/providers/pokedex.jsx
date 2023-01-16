@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { LoginProvider } from './login'
 
-const ENDPOINT = 'https://dev.vadn/pokedex'
+const ENDPOINT = process.env.REACT_APP_ENDPOINT + '/pokedex'
 
 export class PokedexProvider {
 	async getPieceCount() {

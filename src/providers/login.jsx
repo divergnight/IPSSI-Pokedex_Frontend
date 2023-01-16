@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const ENDPOINT = 'https://dev.vadn/'
+const ENDPOINT = process.env.REACT_APP_ENDPOINT + '/'
 
 export class LoginProvider {
 	token

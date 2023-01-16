@@ -1,7 +1,7 @@
 import { LoginProvider } from './login'
 import { immerable } from 'immer'
 
-const ENDPOINT = 'wss://dev.vadn/fight/matchmaking'
+const ENDPOINT = process.env.REACT_APP_WSS_ENDPOINT + '/fight/matchmaking'
 
 export class FightProvider {
 	[immerable] = true
